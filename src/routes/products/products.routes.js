@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const allProds = Router()
-const prodManag = require ('../productManager')
+const prodManag = require ('../../productManager')
 
 
 

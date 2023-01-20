@@ -42,7 +42,7 @@ class Carrito{
     if (cart) {
       return cart
     }
-    return console.log('No se ha encontrado un cart con dich ID')
+    return 'No se ha encontrado un cart con dich ID'
   }
 
   addProductToCart = async ( cid, pid ) =>{
@@ -72,11 +72,10 @@ class Carrito{
 }
 
 module.exports = Carrito
-
-/* 
-const app = new Carrito()
+/* const app = new Carrito()
 app.addProductToCart('8bc7d28f-b943-4f51-a7f2-4f628f970787',3) */
 /* app.getCartById('8bc7d28f-b943-4f51-a7f2-4f628f970787') */
+
 
 
 

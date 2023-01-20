@@ -9,6 +9,8 @@ const {updateProduct} = require('./routes/products/updateProducts.routes')
 const {deleteById} = require('./routes/products/deleteProduct.routes')
 
 const {newCart} = require('./routes/carrito/newCart.routes')
+const {cartById} = require('./routes/carrito/cartById.routes')
+const {addProdToCart} = require ('./routes/carrito/addProdToCart.routes')
 
 app.use(express.json())
 
@@ -18,7 +20,9 @@ app.use('/api/products', addProds)
 app.use('/api/products', updateProduct)
 app.use('/api/products', deleteById)
 
-app.use('/api/cart', newCart)
+app.use('/api/carts', newCart)
+app.use('/api/carts', cartById)
+app.use('/api/carts', addProdToCart)
 
 
 

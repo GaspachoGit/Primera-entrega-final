@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const updateProduct = Router()
-const prodManag = require ('../productManager')
+const prodManag = require ('../../productManager')
 
 const products = new prodManag()
 
@@ -9,7 +9,7 @@ updateProduct.patch('/:id', async(req, res)=>{
   const numId = parseInt(id)
   const infoProd = req.body
 
-  products.updateProduct(numId, infoProd)
+  await products.updateProduct(numId, infoProd)
   res.json({msj: 'producto actualizado'}) 
 })
 

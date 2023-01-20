@@ -1,6 +1,6 @@
 const {Router} = require('express')
 const deleteById = Router()
-const prodManag = require ('../productManager')
+const prodManag = require ('../../productManager')
 
 const products = new prodManag()
 
