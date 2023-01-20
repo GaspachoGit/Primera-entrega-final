@@ -1,13 +1,9 @@
-
-
 const fs = require('fs')
 
 const path = './Products.json'
 
 class ProductManager{
-    constructor(file){
-      this.file = file
-    }
+
     escrituraDeData = async (data) =>{
         try{
             await fs.promises.writeFile (path, JSON.stringify(data, null, 2))
@@ -15,18 +11,21 @@ class ProductManager{
             console.log(error)
         }
     }
+
+
     getProducts = async () => {
         if (fs.existsSync(path)) {
             const data = await fs.promises.readFile(path, 'utf-8');
-/*             console.log(data); */
             const products = JSON.parse(data);
             return products;
         }
         else{
             console.log([])
             return []
-        }
+        } 
     }
+
+
     addProducts = async(obj) =>{
         const product = await this.getProducts()
         let id;
@@ -37,6 +36,10 @@ class ProductManager{
         const keys = ["code", "description", "price", "stock", "thumbnail" , "title"] //declaro el array que debe subir el usuario de forma ordenada
         const keysStr = JSON.stringify(keys) // paso ese mismo array a texto (podría declararlo como texto directamente pero me da miedito y pereza jejeje)
         
+        if (!objetKeysArr.includes('status')) {
+            obj.status = true
+            console.log(obj)
+        }
         if (keysStr === objStr) {//comparo el los dos objetos ordenados como strings 
             if (product.length === 0) {
                 id = 1
@@ -64,6 +67,7 @@ class ProductManager{
         return obj
     }
 
+
     getProductsById = async (id) =>{
         const products = await this.getProducts()
         return console.log(products.find(product => product.id === id)) 
@@ -83,6 +87,8 @@ class ProductManager{
             console.log('not Found')
         }
     }
+    
+    
     updateProduct = async(id, updatedProduct)=>{
         let products = await this.getProducts()
         const index = products.findIndex(product => product.id === id)
@@ -99,4 +105,4 @@ class ProductManager{
         return console.log('todo lo que ha podido fallar, ha fallado')
     }
 }
-module.exports = ProductManager
+module.exports = ProductManager 
