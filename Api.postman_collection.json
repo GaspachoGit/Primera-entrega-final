@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "dde433dd-f3ae-40e1-8998-5fffb16bd590",
+		"name": "Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25298165"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Obtener productos por ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products?limit=2",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Añadir producto nuevo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"title\":\"manzana\",\r\n\"stock\":121,\r\n\"description\":\"es literalmente una manzana\",\r\n\"price\":\"yo no tengo preio, bitch x2fdsa\",\r\n\"thumbnail\":\"reultrasecretofads\",\r\n\"code\":\"123abdefadsa2ghifdsfdsaay\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar productos",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"title\":\"cacahuate\",\r\n\"stock\":121,\r\n\"description\":\"es literalmente una manzana\",\r\n\"price\":\"yo no tengo preio, bitch x2fdsa\",\r\n\"thumbnail\":\"reultrasecretofads\",\r\n\"code\":\"123abdefadsa2ghifdsfdsaay\",\r\n\"id\":6\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/products/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"6"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar por ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/products/6",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"products",
+								"6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Obtener carts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/carts/8bc7d28f-b943-4f51-a7f2-4f628f970787",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"carts",
+								"8bc7d28f-b943-4f51-a7f2-4f628f970787"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Nuevo carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/carts",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"carts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Añadir prod al carrito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/api/carts/2/products",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"carts",
+								"2",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
